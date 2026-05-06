@@ -1,3 +1,5 @@
+import type { CardType } from "../lib/types";
+
 export default function Card({
 	emoji,
 	title,
@@ -45,11 +47,3 @@ export default function Card({
 		</figure>
 	);
 }
-
-export type CardType = {
-	emoji: string;
-	title: string;
-	organic: boolean;
-	amount: number;
-	price: number;
-};
