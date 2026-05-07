@@ -1,5 +1,6 @@
 import { Link, Route, Routes } from "react-router";
 import Product from "./components/Product";
+import NotFoundPage from "./pages/NotFoundPage";
 import OverviewPage from "./pages/OverviewPage";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
 					<Route path="/" element={<OverviewPage />} />
 					<Route path="/overview" element={<OverviewPage />} />
 					<Route path="/product" element={<Product />} />
+					<Route path="*" element={<NotFoundPage />} />
 				</Routes>
 			</div>
 		</div>
