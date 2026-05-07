@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
+import Spinner from "../components/Spinner";
 import type { CardType } from "../lib/types";
 
 export default function OverviewPage() {
@@ -13,7 +14,8 @@ export default function OverviewPage() {
 			});
 	}, []);
 
-	if (!products) return <div>Loading</div>;
+	if (!products) return <Spinner />;
+
 	console.log(products);
 
 	return products.map((p: CardType) => (

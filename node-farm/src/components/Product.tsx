@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router";
+import Spinner from "./Spinner";
 
 export default function Product() {
 	const [searchParams] = useSearchParams();
@@ -16,7 +17,7 @@ export default function Product() {
 			});
 	}, [id]);
 
-	if (!product) return <div>Loading</div>;
+	if (!product) return <Spinner />;
 
 	return (
 		<figure className="relative bg-white shadow-[0_3rem_6rem_1rem_rgba(0,0,0,0.2)] mx-auto my-0 mt-36 w-240">
