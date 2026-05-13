@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon ./index.js"
+		"dev": "tsx index.ts"
 	},
 	"keywords": [],
 	"author": "",
@@ -12,6 +12,6 @@
 	"type": "module",
 	"packageManager": "pnpm@10.33.0",
 	"dependencies": {
-		"nodemon": "^3.1.14"
+		"tsx": "^4.21.0"
 	}
 }
