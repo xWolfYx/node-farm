@@ -12,7 +12,7 @@ const products = JSON.parse(
 
 const server = http.createServer((req, res) => {
 	res.setHeader("Access-Control-Allow-Origin", "*");
-	const fullURL = new URL(req.url, `http://${req.headers.host}`);
+	const fullURL = new URL(req.url ?? "/", `http://${req.headers.host}`);
 	const pathName = fullURL.pathname;
 
 	// Product Page
@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
 		res.end(JSON.stringify(products));
 	} else if (pathName === "/product") {
 		const id = fullURL.searchParams.get("id");
-		const product = products.find((p) => p.id === Number(id));
+		const product = products.find((p: Product) => p.id === Number(id));
 		res.writeHead(200, { "content-type": "application/json" });
 		res.end(JSON.stringify(product));
 	}
@@ -43,3 +43,12 @@ const PORT = 3000;
 server.listen(PORT, "127.0.0.1", () => {
 	console.log(`Server is hosted at http://localhost:${PORT}`);
 });
+
+type Product = {
+	id: number;
+	image: string;
+	productName: string;
+	organic: boolean;
+	quantity: number | string;
+	price: number;
+};
